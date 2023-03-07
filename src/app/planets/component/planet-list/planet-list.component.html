@@ -1,1 +1,27 @@
-<p>planet-list works!</p>
+<div class="container">
+  <h3>Planet list works!</h3>
+  <ng-container *ngIf="planetDataSource$ | async as planets">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Diameter</th>
+          <th scope="col">Climate</th>
+          <th scope="col">Population</th>
+          <th scope="col">Terrain</th>
+          <th scope="col">Gravity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let planet of planets">
+          <th scope="row">{{ planet.name }}</th>
+          <td>{{ planet.diameter }}</td>
+          <td>{{ planet.climate }}</td>
+          <td>{{ planet.population }}</td>
+          <td>{{ planet.terrain }}</td>
+          <td>{{ planet.gravity }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>

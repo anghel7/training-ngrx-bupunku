@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Planet } from '../../models/planet';
+import { PlanetService } from '../../services/planet.service';
 
 @Component({
   selector: 'app-planet-list',
@@ -7,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class PlanetListComponent {
 
+  planetDataSource$: Observable<Planet[]>;
+
+  constructor(private planetService: PlanetService) {
+    this.planetDataSource$ = this.planetService.getAll();
+  }
 }
