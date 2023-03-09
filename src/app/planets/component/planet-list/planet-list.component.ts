@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Planet } from '../../models/planet';
 import { PlanetService } from '../../services/planet.service';
-import { replace } from '../../../planet.actions';
+import { replace, loadPlanets } from '../../../planet.actions';
 
 @Component({
   selector: 'app-planet-list',
@@ -19,12 +19,14 @@ export class PlanetListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    /*
     this.planetService.getAll()
       .subscribe(data => {
         this.store.dispatch(replace({
           list: data
         }));
       });
-   
+    */
+   this.store.dispatch(loadPlanets());
   }
 }

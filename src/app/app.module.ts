@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { PlanetReducer } from './planet.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { PlanetEffects } from './planet.effects';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { PlanetReducer } from './planet.reducer';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({planets: PlanetReducer})
+    StoreModule.forRoot({ planets: PlanetReducer }),
+    EffectsModule.forRoot([PlanetEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
