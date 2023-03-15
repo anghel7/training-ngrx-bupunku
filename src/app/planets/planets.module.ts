@@ -12,6 +12,9 @@ import { PlanetListComponent } from './component/planet-list/planet-list.compone
   imports: [
     CommonModule,
     PlanetsRoutingModule
+  ],
+  exports:[
+    PlanetListComponent
   ]
 })
 export class PlanetsModule { }

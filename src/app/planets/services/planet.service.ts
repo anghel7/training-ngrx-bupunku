@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from "rxjs";
+import { concatAll, map, Observable, take, toArray } from "rxjs";
 import { Page } from '../models/page';
 import { Planet } from '../models/planet';
 
@@ -18,7 +18,10 @@ export class PlanetService {
   getAll(): Observable<Planet[]> {
     return this.http.get<Page<Planet>>(this.planetsUrl)
       .pipe(
-        map(response => response.results)
+        map(response => response.results),
+        concatAll(),
+        take(2),
+        toArray()
       );
   }
 }

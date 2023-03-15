@@ -18,10 +18,10 @@ export class PlanetEffects {
       }),
       ofType('[Planet List] Load Planets'),
       tap(data => {
-        console.log('Debug ofType observable: ', data);
+        // console.log('Debug ofType observable: ', data);
       }),
       exhaustMap((data) => {
-        console.log('Debug ExhautMap rxjs operator: ', data);
+        // console.log('Debug ExhautMap rxjs operator: ', data);
         return this.planetService.getAll()
           .pipe(
             // map(planets => ({ type: '[Planet List] Loaded Success', list: planets })),
@@ -31,7 +31,7 @@ export class PlanetEffects {
           );
       })
     );
-    console.log('Debug Return Data Observable: ', somedata);
+    // console.log('Debug Return Data Observable: ', somedata);
     return somedata
   }
   );
